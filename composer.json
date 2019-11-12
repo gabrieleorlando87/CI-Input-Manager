@@ -1,0 +1,19 @@
+{
+    "name": "gabrieleorlando87/CI-Input-Manager",
+	"description": "Input manager for CodeIgniter.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Gabriele Orlando",
+            "email": "gabriele.orlando.87@gmail.com"
+        }
+    ],
+	"require": {
+		"php": ">=5.3.7"
+	},
+    "autoload": {
+        "psr-4": {
+            "CIInputManager\\": "src/"
+        }
+    }
+}
