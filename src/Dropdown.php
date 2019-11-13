@@ -24,10 +24,7 @@ class Dropdown{
 			) = BaseInput::check_attributes($attrs);
 		
 		$data = [];
-        $data_sel = [$value];
-        if ($_ci->input->post($name) != FALSE) {
-            $data_sel[] = $_ci->input->post($name);
-        }
+        $data_sel = $_ci->input->post($name) != FALSE ? [$_ci->input->post($name)] : [$value];
         return form_dropdown($name, $data, $data_sel, 'id="' . $name . '" class="'.$classes.'" '.$readonly.' '.$disabled.' '.$required.' ');
 	}
 }
