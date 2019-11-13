@@ -7,7 +7,7 @@ namespace CIInputManager;
  *
  * @author gorlando
  */
-class Input{
+class Password{
 	
 	/**
 	 * 
@@ -81,6 +81,6 @@ class Input{
 		if(is_bool($required) && $required === TRUE){
 			$data['required'] = 'required';
 		}
-        return form_input($data);
+        return form_password($data);
 	}
 }
