@@ -9,15 +9,11 @@ use CIInputManager\BaseInput;
  *
  * @author Gabriele
  */
-class Hidden extends BaseInput {
-
-	public function __construct($attrs = []) {
-		parent::__construct();
-		
-		return $this->create($attrs);
-	}
+class Hidden{
 	
-	public function create(array $attrs) : string {
+	public static function create(array $attrs) : string {
+		$_ci = & get_instance();
+		
 		list(
 				'name' => $name, 
 				'value' => $value, 
@@ -25,10 +21,10 @@ class Hidden extends BaseInput {
 				'readonly' => $readonly, 
 				'disabled' => $disabled,
 				'required' => $required
-			) = $this->check_attributes($attrs);
+			) = BaseInput::check_attributes($attrs);
 
-        if ($this->_ci->input->post($name) != FALSE) {
-            $value = $this->_ci->input->post($name);
+        if ($_ci->input->post($name) != FALSE) {
+            $value = $_ci->input->post($name);
         }
         return form_hidden($name.'_hidden', $value);
 	}

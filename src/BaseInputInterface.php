@@ -9,7 +9,7 @@ namespace CIInputManager;
  */
 interface BaseInputInterface {
 	
-	public function create(array $attrs) : string;
+	public static function create(array $attrs) : string;
 	
-	public function check_attributes(array $attrs) : array;
+	public static function check_attributes(array $attrs) : array;
 }

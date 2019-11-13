@@ -10,12 +10,6 @@ use CIInputManager\BaseInputInterface;
  * @author gorlando
  */
 abstract class BaseInput implements BaseInputInterface {
-	
-	protected $_ci;
-
-	public function __construct() {
-		$this->_ci = & get_instance();
-	}
 
 	/**
 	 * 
@@ -27,7 +21,7 @@ abstract class BaseInput implements BaseInputInterface {
 	 * - disabled (bool): per settare l'attributo disabled.
 	 * @return array
 	 */
-	public function check_attributes(array $attrs) : array {
+	public static function check_attributes(array $attrs) : array {
 		if(!array_key_exists("name", $attrs) || !is_string($attrs["name"])){
 			$attrs["name"] = uniqid();
 		}

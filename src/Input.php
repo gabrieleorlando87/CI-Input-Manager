@@ -9,15 +9,11 @@ use CIInputManager\BaseInput;
  *
  * @author gorlando
  */
-class Input extends BaseInput {
+class Input{
 	
-	public function __construct($attrs = []) {
-		parent::__construct();
+	public static function create(array $attrs) : string {
+		$_ci = & get_instance();
 		
-		return $this->create($attrs);
-	}
-	
-	public function create(array $attrs) : string {
 		list(
 				'name' => $name, 
 				'value' => $value, 
@@ -25,12 +21,12 @@ class Input extends BaseInput {
 				'readonly' => $readonly, 
 				'disabled' => $disabled,
 				'required' => $required
-			) = $this->check_attributes($attrs);
+			) = BaseInput::check_attributes($attrs);
         
 		$data = array(
             'name' => $name,
             'id' => $name,
-            'value' => $this->_ci->input->post($name) !== FALSE ? $this->_ci->input->post($name) : $value,
+            'value' => $_ci->input->post($name) !== FALSE ? $_ci->input->post($name) : $value,
             'class' => $classes,
 			'readonly' => $readonly,
 			'disabled' => $disabled,
